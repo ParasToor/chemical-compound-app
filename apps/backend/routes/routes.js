@@ -1,6 +1,5 @@
 const express = require("express");
 const {
-  createCompound,
   getAllCompounds,
   updateCompound,
   deleteCompound,
@@ -8,13 +7,13 @@ const {
 } = require("../controllers/compoundController");
 const router = express.Router();
 
-router.get("/compounds/:id", getCompound);
-
 router
-  .route("/compounds")
-  .get(getAllCompounds)
-  .post(createCompound)
+  .route("/compounds/:id")
+  .get(getCompound)
   .patch(updateCompound)
   .delete(deleteCompound);
+
+router.get("/compounds", getAllCompounds);
+
 
 module.exports = router;
