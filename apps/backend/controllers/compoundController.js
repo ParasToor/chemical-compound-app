@@ -88,13 +88,23 @@ const updateCompound = async (req, res) => {
 
 const getAllCompounds = async (req, res) => {
   try {
-    const data = await Compound.findAll({
+    const { pageNumber, pageSize } = req.query;
+    const limit = parseInt(pageSize);
+    const offset = parseInt((pageNumber - 1) * pageSize);
+
+    const { count, rows } = await Compound.findAndCountAll({
+      limit: limit,
+      offset: offset,
       raw: true,
     });
 
+    const totalPages = Math.ceil(count / limit);
+
     return res.status(200).json({
       success: "true",
-      data: data,
+      totalPages: totalPages,
+      currentPage: pageNumber,
+      data: rows,
     });
   } catch (err) {
     return res.status(500).json({
