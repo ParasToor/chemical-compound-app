@@ -2,3 +2,10 @@
 <div style="display: flex; flex-wrap: wrap">
   <card *ngFor="let compound of compounds" [data]="compound" />
 </div>
+<div style="margin-top: 20px">
+  <button (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
+  <span>Page {{ currentPage }} of {{ totalPages }}</span>
+  <button (click)="nextPage()" [disabled]="currentPage === totalPages">
+    Next
+  </button>
+</div>
