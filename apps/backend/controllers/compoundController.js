@@ -104,10 +104,6 @@ const getAllCompounds = async (req, res) => {
   }
 };
 
-
-
-
-
 // const createCompound = async (req, res) => {
 //   try {
 //     const data = req.body;
@@ -133,7 +129,7 @@ const getAllCompounds = async (req, res) => {
 
 module.exports = {
   getCompound,
-  createCompound,
+  // createCompound,
   getAllCompounds,
   updateCompound,
   deleteCompound,
