@@ -114,32 +114,28 @@ const getAllCompounds = async (req, res) => {
   }
 };
 
-// const createCompound = async (req, res) => {
-//   try {
-//     const data = req.body;
+const createCompound = async (req, res) => {
+  try {
+    const data = req.body;
 
-//     // console.log("request    ->", req.body);
+    const result = await Compound.create(data);
 
-//     const result = await Compound.create(data);
-
-//     // console.log("result--->", result);
-
-//     return res.status(200).json({
-//       success: "true",
-//       message: result,
-//     });
-//   } catch (err) {
-//     console.log("Error in creation of compound  -", err);
-//     return res.status(500).json({
-//       success: "false",
-//       message: err.message,
-//     });
-//   }
-// };
+    return res.status(200).json({
+      success: "true",
+      message: result,
+    });
+  } catch (err) {
+    console.log("Error in creation of compound  -", err);
+    return res.status(500).json({
+      success: "false",
+      message: err.message,
+    });
+  }
+};
 
 module.exports = {
   getCompound,
-  // createCompound,
+  createCompound,
   getAllCompounds,
   updateCompound,
   deleteCompound,

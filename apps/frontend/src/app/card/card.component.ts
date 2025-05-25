@@ -15,7 +15,6 @@ export class CardComponent {
   constructor(private router: Router) {}
 
   clickHandler() {
-    console.log('clicked');
     this.router.navigate(['/compounds/', this.data.id]);
   }
 }

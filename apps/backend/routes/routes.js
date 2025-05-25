@@ -4,6 +4,7 @@ const {
   updateCompound,
   deleteCompound,
   getCompound,
+  createCompound,
 } = require("../controllers/compoundController");
 const router = express.Router();
 
@@ -13,7 +14,6 @@ router
   .patch(updateCompound)
   .delete(deleteCompound);
 
-router.get("/compounds", getAllCompounds);
-
+router.route("/compounds").post(createCompound).get(getAllCompounds);
 
 module.exports = router;

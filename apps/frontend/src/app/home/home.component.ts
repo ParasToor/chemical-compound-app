@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CardComponent } from '../card/card.component';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   standalone: true,
@@ -16,7 +17,10 @@ export class HomeComponent {
   totalPages = 1;
   limit = 10;
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+  ) {}
 
   ngOnInit() {
     this.fetchCompounds(this.currentPage);
@@ -29,10 +33,6 @@ export class HomeComponent {
       )
       .subscribe({
         next: (res: any) => {
-          // const { data, currentPage, totalPages } = res;
-          // console.log('data   -', data);
-          // console.log('currentPage   -', currentPage);
-          // console.log('totalPages   -', totalPages);
           this.compounds = res.data;
           this.currentPage = +res.currentPage;
           this.totalPages = +res.totalPages;
@@ -53,5 +53,9 @@ export class HomeComponent {
     if (this.currentPage > 1) {
       this.fetchCompounds(this.currentPage - 1);
     }
+  }
+
+  addHandler() {
+    this.router.navigate(['/compound/add']);
   }
 }
