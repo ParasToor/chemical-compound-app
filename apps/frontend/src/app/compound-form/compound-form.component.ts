@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { Location } from '@angular/common';
+import { Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-compound-form',
@@ -19,11 +21,18 @@ export class CompoundFormComponent {
     private route: ActivatedRoute,
     private http: HttpClient,
     private router: Router,
+    private location: Location,
   ) {
     this.form = new FormGroup({
-      name: new FormControl(''),
-      image: new FormControl(''),
-      description: new FormControl(''),
+      name: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      image: new FormControl('', [
+        Validators.required,
+        Validators.pattern(/^https?:\/\/.+\.(jpg|jpeg|png|gif)$/i),
+      ]),
+      description: new FormControl('', [
+        Validators.required,
+        Validators.minLength(10),
+      ]),
     });
   }
 
@@ -46,6 +55,11 @@ export class CompoundFormComponent {
   }
 
   submit() {
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
+      return;
+    }
+
     const data = this.form.value;
 
     if (this.isEditMode) {
@@ -53,8 +67,9 @@ export class CompoundFormComponent {
         .patch(`http://localhost:4000/api/v1/compounds/${this.id}`, data)
         .subscribe({
           next: (res: any) => {
-            alert('Compound updated');
-            this.router.navigate(['/compounds/', this.id]);
+            // alert('Compound updated');
+            // this.router.navigate(['/compounds/', this.id]);
+            this.location.back();
           },
           error: (err) => {
             console.log('API error:', err);
@@ -63,8 +78,8 @@ export class CompoundFormComponent {
     } else {
       this.http.post(`http://localhost:4000/api/v1/compounds`, data).subscribe({
         next: (res: any) => {
-          alert('Compound created');
-          this.router.navigate(['/']);
+          // this.router.navigate(['/']);
+          this.location.back();
         },
         error: (err) => {
           console.log('API error:', err);

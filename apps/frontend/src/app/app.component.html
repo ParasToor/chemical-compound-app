@@ -1,12 +1,17 @@
 <div class="app-wrapper">
   <Header class="header-container">
     <div class="header-content">
-      <div class="header-logo">Chemical Compounds</div>
-      <div class="header-addButton">Add new chemical compound</div>
+      <div class="header-logo">
+        <img src="../assets/first.png" alt="here is image">
+        Chemical Compounds
+        <!-- <img src="../../public/Chemical Compounds.png" alt=""> -->
+
+      </div>
+      <button (click)="addHandler()" >Add Compound</button>
+      <!-- <div class="header-addButton">Add new chemical compound</div> -->
     </div>
   </Header>
   <div class="main-content">
     <router-outlet></router-outlet>
   </div>
 </div>
-<!-- (click)="addHandler()" -->

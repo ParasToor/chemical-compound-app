@@ -1,6 +1,5 @@
 .container {
   height: 100%;
-  /* border: 2px solid red; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -8,7 +7,6 @@
 
 .content {
   display: flex;
-  /* border: 2px solid blue; */
   margin: 10px;
   width: 80%;
   height: 80%;
@@ -31,38 +29,59 @@
   width: 400px;
   object-fit: contain;
   border-radius: 8px;
+  transition: filter 0.3s ease-in-out;
+}
+
+.compoundImage img:hover {
+  filter: drop-shadow(10px 10px 5px rgba(0, 0, 0));
 }
 
 .compoundInfo {
   width: 50%;
-  /* border: 2px solid red; */
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  /* position: relative;
-  padding: 30px;
-   */
 }
 
 .text-content {
-  /* position: absolute; */
-  /* top: 25%; */
-  /* border: 2px solid green; */
   text-align: center;
   padding: 5px;
-  /* height: 50%; */
-  /* display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly; */
 }
 
 .compoundName {
   font-weight: 700;
   font-size: 3rem;
-  /* text-align: center; */
-  /* color: #38f2ae; */
+  display: inline;
+  position: relative;
+  transition: filter 0.3s ease-in-out;
+}
+
+.compoundName:hover {
+  filter: drop-shadow(10px 10px 5px rgba(0, 0, 0));
+}
+
+.compoundName::after {
+  content: "";
+  position: absolute;
+  background-color: #38f2ae;
+  bottom: 0px;
+  left: 0px;
+  width: 0;
+  height: 3px;
+  transition: width 900ms ease-in-out;
+}
+
+.compoundName:hover::after {
+  width: 100%;
+}
+
+.compoundDescription {
+  transition: filter 0.3s ease-in-out;
+}
+
+.compoundDescription:hover {
+  filter: drop-shadow(10px 10px 5px rgba(0, 0, 0));
 }
 
 button {
@@ -71,7 +90,6 @@ button {
 
 .buttons-container {
   width: 50%;
-  /* border: 2px solid red; */
   display: flex;
   justify-content: space-evenly;
 }

@@ -1,18 +1,8 @@
-/* .example-card {
-  max-width: 400px;
-} */
-
-/* .example-header-image {
-  background-image: url("https://material.angular.dev/assets/img/examples/shiba1.jpg");
-  background-size: cover;
-} */
-
-
 .mat-mdc-card {
   height: 100%;
   background-color: #efefef;
   box-shadow: none;
-  transition: box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease-in-out;
 }
 
 .mat-mdc-card:hover {
@@ -21,6 +11,18 @@
   box-shadow:
     -1px -1px 4px #6a3ef9,
     2px 2px 4px #6a3ef9;
+  animation-duration: 0.8s;
+  animation-name: spin;
+}
+
+@keyframes spin {
+  0% {
+  }
+  50% {
+    transform: scale(1.04);
+  }
+  100% {
+  }
 }
 
 .card-content {
