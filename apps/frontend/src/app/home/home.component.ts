@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { CardComponent } from '../card/card.component';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   standalone: true,
   selector: 'home',
-  imports: [CardComponent, CommonModule],
+  imports: [CardComponent, CommonModule, MatIconModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })

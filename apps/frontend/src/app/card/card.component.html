@@ -14,14 +14,35 @@
   </mat-card-actions>
 </mat-card> -->
 
-<mat-card (click)="clickHandler()" style="margin: 10px">
-  <mat-card-title>{{ data.name }}</mat-card-title>
+
+
+
+
+  <!-- <mat-card-title>{{ data.name }}</mat-card-title>
   <mat-card-content
     ><img
       style="width: 100px"
       mat-card-image
       src="{{ data.image }}"
       alt="Photo of a Shiba Inu"
-  /></mat-card-content>
-  <!-- <button mat-button>View</button> -->
+  /></mat-card-content> -->
+
+
+
+
+
+
+<mat-card (click)="clickHandler()">
+  <div class="card-content">
+    <img
+    class="compound-image"
+      class="compound-image"
+      style="width: 100px"
+      mat-card-image
+      src="{{ data.image }}"
+      alt="Photo of a Shiba Inu"
+    />
+    <div class="compound-name">{{ data.name }}</div>
+  </div>
+
 </mat-card>

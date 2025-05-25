@@ -1,2 +1,12 @@
-<h1>Hello</h1>
-<router-outlet></router-outlet>
+<div class="app-wrapper">
+  <Header class="header-container">
+    <div class="header-content">
+      <div class="header-logo">Chemical Compounds</div>
+      <div class="header-addButton">Add new chemical compound</div>
+    </div>
+  </Header>
+  <div class="main-content">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+<!-- (click)="addHandler()" -->

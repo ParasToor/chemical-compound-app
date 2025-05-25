@@ -1,8 +1,44 @@
-.example-card {
+/* .example-card {
   max-width: 400px;
-}
+} */
 
-.example-header-image {
+/* .example-header-image {
   background-image: url("https://material.angular.dev/assets/img/examples/shiba1.jpg");
   background-size: cover;
+} */
+
+
+.mat-mdc-card {
+  height: 100%;
+  background-color: #efefef;
+  box-shadow: none;
+  transition: box-shadow 0.3s ease;
+}
+
+.mat-mdc-card:hover {
+  cursor: pointer;
+  background-color: #fcfbfb;
+  box-shadow:
+    -1px -1px 4px #6a3ef9,
+    2px 2px 4px #6a3ef9;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+}
+
+.compound-image {
+  height: 40%;
+}
+
+.compound-name {
+  text-align: center;
+  padding: 0 20px;
+  font-family: "Pop";
+  font-size: 1.2rem;
+  font-weight: 800;
 }

@@ -1,12 +1,40 @@
-<h1>this is home</h1>
-<button (click)="addHandler()">add</button>
-<div style="display: flex; flex-wrap: wrap">
-  <card *ngFor="let compound of compounds" [data]="compound" />
-</div>
-<div style="margin-top: 20px">
-  <button (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
-  <span>Page {{ currentPage }} of {{ totalPages }}</span>
-  <button (click)="nextPage()" [disabled]="currentPage === totalPages">
-    Next
-  </button>
-</div>
+<!-- <body> -->
+<!-- <Header class="header-container">
+    <div class="header-content">
+      <div class="header-logo">Chemical Compounds</div>
+      <div class="header-addButton" (click)="addHandler()">
+        Add new chemical compound
+      </div>
+    </div>
+  </Header> -->
+
+<main>
+  <div class="container">
+    <card
+      class="compound-card"
+      *ngFor="let compound of compounds"
+      [data]="compound"
+    />
+  </div>
+</main>
+
+<footer>
+  <div class="footer">
+    <!-- <div class="footer-content"> -->
+    <button (click)="prevPage()" [disabled]="currentPage === 1">
+      <!-- Previous -->
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+
+    <span class="pageNumbers" style="background-color: white"
+      >{{ currentPage }} / {{ totalPages }}</span
+    >
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages">
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+    <!-- </div> -->
+
+    <!-- <span class="material-symbols-outlined"> chevron_left </span> -->
+  </div>
+</footer>
+<!-- </body> -->

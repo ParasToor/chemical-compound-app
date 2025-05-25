@@ -1,0 +1,38 @@
+.app-wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content{
+    height: 100%;
+}
+
+.header-container {
+  /* border: 2px solid #efefef; */
+  box-shadow: 0 3px 4px rgba(82, 31, 248, 0.4);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  /* border: 2px solid green; */
+  margin: 30px 100px;
+}
+
+.header-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #521ff8;
+}
+
+.header-addButton {
+  color: #521ff8;
+  /* border: 2px solid blue; */
+  margin: auto 0;
+}
+
+.header-addButton:hover {
+  color: #2b10a7;
+  cursor: pointer;
+}

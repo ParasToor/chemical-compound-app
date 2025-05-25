@@ -1,6 +1,26 @@
-<p>compound works!</p>
-<button (click)="editHandler()">Edit</button>
-<button (click)="deleteHandler()">Delete</button>
-<p>name: {{ compound.name }}</p>
-<p>description: {{ compound.description }}</p>
-<img src="{{ compound.image }}" alt="Compound Image" />
+<!-- <button (click)="editHandler()">Edit</button>
+    <button (click)="deleteHandler()">Delete</button> -->
+
+<div class="container">
+  <div class="content">
+    <!-- <div class="header">
+      <div class="buttons-container">
+        <button>Edit</button>
+        <button>Delete</button>
+      </div>
+    </div> -->
+    <div class="compoundInfo">
+      <div class="text-content">
+        <div class="compoundName">{{ compound.name }}</div>
+        <div class="compoundDescription">{{ compound.description }}</div>
+      </div>
+      <div class="buttons-container">
+        <button>Edit</button>
+        <button>Delete</button>
+      </div>
+    </div>
+    <div class="compoundImage">
+      <img src="{{ compound.image }}" alt="Compound Image" />
+    </div>
+  </div>
+</div>
