@@ -1,4 +1,4 @@
-const Compound = require("../models/compounds");
+const Compound = require("../../models/compounds");
 
 const getCompound = async (req, res) => {
   try {
