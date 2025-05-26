@@ -27,7 +27,11 @@
 }
 
 .header-logo img {
-  height: 60px;
+  position: absolute;
+  height: 70px;
+  /* width: 200px; */
+  top: 12px;
+  /* left: 200px; */
 }
 
 .header-addButton {
