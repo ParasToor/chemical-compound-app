@@ -28,3 +28,29 @@
   position: absolute;
 }
 
+.add-icon {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .header-logo {
+    left: -80px;
+  }
+
+  .add-icon {
+    position: relative;
+    display: inline;
+    left: 70px;
+    color: #521ff8;
+    /* font-size: larger !important; */
+  }
+
+  .addButton {
+    z-index: -1;
+    display: none;
+  }
+  .logo {
+    height: 270%;
+    top: -80%;
+  }
+}

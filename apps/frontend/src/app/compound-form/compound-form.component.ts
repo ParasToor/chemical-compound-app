@@ -27,7 +27,7 @@ export class CompoundFormComponent {
       name: new FormControl('', [Validators.required, Validators.minLength(3)]),
       image: new FormControl('', [
         Validators.required,
-        Validators.pattern(/^https?:\/\/.+\.(jpg|jpeg|png|gif)$/i),
+        Validators.pattern(/^https?:\/\/.+\.(jpg|jpeg|png|gif|svg)$/i),
       ]),
       description: new FormControl('', [
         Validators.required,
@@ -59,6 +59,7 @@ export class CompoundFormComponent {
   }
 
   submit() {
+    console.log('clicked');
     if (this.form.invalid) {
       this.form.markAllAsTouched();
       return;

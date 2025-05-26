@@ -52,16 +52,22 @@ textarea {
   resize: vertical;
 }
 
-.buttons{
+.buttons {
   margin-top: 10px;
   width: 100%;
   display: flex;
   justify-content: space-evenly;
 }
 
-
-button{
-    width: 45%;
-    /* margin: auto;
+button {
+  width: 45%;
+  /* margin: auto;
     margin-top: 10px; */
+}
+
+@media (max-width: 480px) {
+  .form-container {
+    /* border: 2px solid red; */
+    width: 300px;
+  }
 }

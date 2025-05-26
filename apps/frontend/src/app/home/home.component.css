@@ -1,7 +1,4 @@
-
-
 /* -----------------------------------Header------------------------------------------- */
-
 
 /* -----------------------------------------Main---------------------------------- */
 .container {
@@ -33,4 +30,32 @@ footer {
 .pageNumbers {
   background-color: white;
   padding: 10px;
+}
+
+@media (max-width: 480px) {
+  .container {
+    /* width: 90%; */
+    padding: 20px;
+    row-gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 200px);
+  }
+
+  .footer {
+    /* border: 2px solid red; */
+    padding-bottom: 5px;
+    width: 100%;
+    gap: 10px;
+    justify-content: center;
+    /* justify-content: space-evenly; */
+  }
+
+  .arrowButton {
+    padding: 2px;
+  }
+
+  .pageNumbers {
+    padding: 2px;
+  }
 }

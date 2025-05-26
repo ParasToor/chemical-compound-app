@@ -51,14 +51,14 @@
 
 .compoundName {
   font-weight: 700;
-  font-size: 3rem;
+  font-size: 2.3rem;
   display: inline;
   position: relative;
   transition: filter 0.3s ease-in-out;
 }
 
 .compoundName:hover {
-  filter: drop-shadow(10px 10px 5px rgba(0, 0, 0,0.5));
+  filter: drop-shadow(10px 10px 5px rgba(0, 0, 0, 0.5));
 }
 
 .compoundName::after {
@@ -78,6 +78,7 @@
 
 .compoundDescription {
   transition: filter 0.3s ease-in-out;
+  padding-top: 10px;
 }
 
 .compoundDescription:hover {
@@ -92,4 +93,80 @@ button {
   width: 70%;
   display: flex;
   justify-content: space-evenly;
+}
+
+@media (max-width: 480px) {
+  .content {
+    flex-direction: column;
+    position: relative;
+    height: auto;
+  }
+
+  .compoundInfo {
+    width: 100%;
+  }
+
+  .compoundImage {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 60px;
+  }
+
+  .compoundImage img {
+    height: 200px;
+    width: 200px;
+    object-fit: contain;
+    border-radius: 8px;
+    /* display: block; */
+    /* transition: filter 0.3s ease-in-out; */
+  }
+
+  .buttons-container {
+    width: 100%;
+    position: absolute;
+    bottom: 10px;
+  }
+
+  .buttons-container button {
+    padding: 10px 20px;
+  }
+
+  .compoundImage img:hover {
+    filter: none;
+  }
+
+  .compoundName {
+    transition: none;
+  }
+
+  .compoundName:hover {
+    filter: none;
+  }
+
+  .compoundName::after {
+    transition: none;
+  }
+
+  .compoundName:hover::after {
+    width: 0;
+  }
+
+  .compoundDescription {
+    transition: none;
+  }
+
+  .compoundDescription:hover {
+    filter: none;
+  }
+
+  button {
+    transition: none;
+  }
+
+  .compoundImage img {
+    transition: none;
+  }
 }

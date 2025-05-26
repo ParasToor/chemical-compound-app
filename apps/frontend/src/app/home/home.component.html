@@ -1,13 +1,3 @@
-<!-- <body> -->
-<!-- <Header class="header-container">
-    <div class="header-content">
-      <div class="header-logo">Chemical Compounds</div>
-      <div class="header-addButton" (click)="addHandler()">
-        Add new chemical compound
-      </div>
-    </div>
-  </Header> -->
-
 <main>
   <div class="container">
     <card
@@ -20,21 +10,23 @@
 
 <footer>
   <div class="footer">
-    <!-- <div class="footer-content"> -->
-    <button (click)="prevPage()" [disabled]="currentPage === 1">
-      <!-- Previous -->
+    <button
+      class="arrowButton"
+      (click)="prevPage()"
+      [disabled]="currentPage === 1"
+    >
       <mat-icon>chevron_left</mat-icon>
     </button>
 
     <span class="pageNumbers" style="background-color: white"
       >{{ currentPage }} / {{ totalPages }}</span
     >
-    <button (click)="nextPage()" [disabled]="currentPage === totalPages">
+    <button
+      class="arrowButton"
+      (click)="nextPage()"
+      [disabled]="currentPage === totalPages"
+    >
       <mat-icon>chevron_right</mat-icon>
     </button>
-    <!-- </div> -->
-
-    <!-- <span class="material-symbols-outlined"> chevron_left </span> -->
   </div>
 </footer>
-<!-- </body> -->

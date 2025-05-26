@@ -14,7 +14,7 @@ const validationSchemas = {
       name: "image",
       validations: {
         type: "string",
-        pattern: /^https?:\/\/.+\.(jpg|png|jpeg)$/i,
+        pattern: /^https?:\/\/[^\s]+?\.(jpg|jpeg|png|gif|svg)(\?.*)?$/i,
       },
       message: "Invalid image URL",
     },
@@ -32,7 +32,7 @@ const validationSchemas = {
       name: "image",
       validations: {
         type: "string",
-        pattern: /^https?:\/\/.+\.(jpg|png|jpeg)$/i,
+        pattern: /^https?:\/\/[^\s]+?\.(jpg|jpeg|png|gif|svg)(\?.*)?$/i,
       },
       message: "Invalid image URL",
     },

@@ -1,14 +1,17 @@
 <mat-card (click)="clickHandler()">
   <div class="card-content">
     <img
-    class="compound-image"
+      class="compound-image"
       class="compound-image"
       style="width: 100px"
       mat-card-image
-      src="{{ data.image }}"
-      alt="Photo of a Shiba Inu"
+      [src]="
+        data.image ? data.image : 'https://placehold.co/400x400?text=No+Image'
+      "
+      alt="Compound Image"
     />
     <div class="compound-name">{{ data.name }}</div>
   </div>
-
 </mat-card>
+
+<!-- src="{{ data.image}}" -->
