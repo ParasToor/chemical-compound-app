@@ -34,7 +34,9 @@
     >
       Description is required and should be at least 10 characters.
     </div>
-
-    <button type="submit">{{ isEditMode ? "Update" : "Add" }}</button>
+    <div class="buttons">
+      <button (click)="cancelHandler()" >Cancel</button>
+      <button type="submit">{{ isEditMode ? "Update" : "Add" }}</button>
+    </div>
   </form>
 </div>

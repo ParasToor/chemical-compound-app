@@ -52,8 +52,16 @@ textarea {
   resize: vertical;
 }
 
+.buttons{
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+
 button{
-    width: 50%;
-    margin: auto;
-    margin-top: 10px;
+    width: 45%;
+    /* margin: auto;
+    margin-top: 10px; */
 }

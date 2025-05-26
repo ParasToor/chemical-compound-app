@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-compound',
@@ -18,6 +19,7 @@ export class CompoundComponent {
     private route: ActivatedRoute,
     private http: HttpClient,
     private router: Router,
+    private location: Location,
   ) {}
 
   ngOnInit() {
@@ -32,6 +34,10 @@ export class CompoundComponent {
         console.error('API error:', err);
       },
     });
+  }
+
+  backHandler() {
+    this.location.back();
   }
 
   editHandler() {

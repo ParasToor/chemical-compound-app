@@ -36,6 +36,10 @@ export class CompoundFormComponent {
     });
   }
 
+  cancelHandler() {
+    this.location.back();
+  }
+
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
     this.isEditMode = !!this.id;
@@ -45,7 +49,7 @@ export class CompoundFormComponent {
         .get(`http://localhost:4000/api/v1/compounds/${this.id}`)
         .subscribe({
           next: (res: any) => {
-            this.form.patchValue(res.data); // Fill form with existing data
+            this.form.patchValue(res.data);
           },
           error: (err) => {
             console.log('API error:', err);
