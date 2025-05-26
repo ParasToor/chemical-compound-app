@@ -9,7 +9,7 @@ const getCompound = async (req, res) => {
     if (!compound) {
       return res.status(404).json({
         success: "false",
-        message: "Data not found",
+        error: "Data not found",
       });
     }
 
@@ -36,7 +36,7 @@ const deleteCompound = async (req, res) => {
     if (!deleteData) {
       return res.status(404).json({
         success: "false",
-        message: "Data not found",
+        error: "Data not found",
       });
     }
 
@@ -49,7 +49,7 @@ const deleteCompound = async (req, res) => {
 
     return res.status(500).json({
       success: "false",
-      message: err.message || "Internal server error",
+      error: err.message || "Internal server error",
     });
   }
 };
@@ -66,7 +66,7 @@ const updateCompound = async (req, res) => {
     if (!findExists) {
       return res.status(404).json({
         success: "false",
-        message: "Data not found",
+        error: "Data not found",
       });
     }
 
@@ -128,7 +128,7 @@ const createCompound = async (req, res) => {
     console.log("Error in creation of compound  -", err);
     return res.status(500).json({
       success: "false",
-      message: err.message,
+      error: err.message || "Internal server error",
     });
   }
 };

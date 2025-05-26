@@ -6,12 +6,13 @@ const {
   getCompound,
   createCompound,
 } = require("../controllers/compoundController");
+const validationMiddleware = require("../middlewares/validationMiddleware");
 const router = express.Router();
 
 router
   .route("/compounds/:id")
   .get(getCompound)
-  .patch(updateCompound)
+  .patch(validationMiddleware("updateCompound"), updateCompound)
   .delete(deleteCompound);
 
 router.route("/compounds").post(createCompound).get(getAllCompounds);
