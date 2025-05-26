@@ -10,7 +10,6 @@
   padding-bottom: 30px;
   gap: 20px;
   row-gap: 50px;
-  /* border: 2px solid red; */
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(2, 200px);
@@ -35,24 +34,3 @@ footer {
   background-color: white;
   padding: 10px;
 }
-
-/* button {
-  background-color: #521ff8;
-  border-radius: 5px;
-  border: none;
-  padding: 10px;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: box-shadow 0.4s ease;
-}
-
-button:hover {
-  cursor: pointer;
-  background-color: #f6f5f5;
-  color: #6a3ef9;
-  box-shadow:
-    -1px -1px 4px #6a3ef9,
-    2px 2px 4px #6a3ef9;
-} */

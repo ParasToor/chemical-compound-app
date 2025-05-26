@@ -9,37 +9,22 @@
 }
 
 .header-container {
-  /* border: 2px solid #efefef; */
   box-shadow: 0 5px 3px rgba(82, 31, 248, 0.4);
 }
 
 .header-content {
   display: flex;
   justify-content: space-between;
-  /* border: 2px solid green; */
   margin: 30px 100px;
 }
 
 .header-logo {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #521ff8;
+  position: relative;
 }
 
-.header-logo img {
+.logo {
+  height: 200%;
+  top: -50%;
   position: absolute;
-  height: 70px;
-  /* width: 200px; */
-  top: 12px;
-  /* left: 200px; */
 }
 
-.header-addButton {
-  color: #521ff8;
-  margin: auto 0;
-}
-
-/* .header-addButton:hover {
-  color: #521ff8;
-  cursor: pointer;
-} */
