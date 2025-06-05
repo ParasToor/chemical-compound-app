@@ -13,10 +13,7 @@ const createSchema = (fields) => {
 
   fields.forEach((field) => {
     const { name, validations, conditional, message } = field;
-    // Initialize with Joi type
-    // schema[name] = Joi[validations.type](...validations.args || []);
     if (Array.isArray(validations.type)) {
-      // Allow multiple types (e.g., ["string", "array"])
       const types = validations.type.map((t) => typeMapping[t]());
       if (validations.type.includes("array") && validations.items) {
         const arrayType = Joi.array().items(
@@ -27,15 +24,20 @@ const createSchema = (fields) => {
         schema[name] = Joi.alternatives().try(...types);
       }
     } else {
-      // Single type
-      schema[name] = Joi[validations.type](...(validations.args || []));
+      if (validations.type === "array" && validations.items) {
+        const arrayType = Joi.array().items(
+          typeMapping[validations.items.type]()
+        );
+        schema[name] = Joi.alternatives().try(arrayType);
+      } else {
+        schema[name] = Joi[validations.type](...(validations.args || []));
+      }
     }
 
     if (!schema[name]) {
       throw new Error(`Invalid type provided for field: ${name}`);
     }
 
-    // Add additional validations
     if (validations.required) {
       schema[name] = schema[name].required();
     }

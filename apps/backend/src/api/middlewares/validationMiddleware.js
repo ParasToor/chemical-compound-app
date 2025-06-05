@@ -41,14 +41,15 @@ const validationSchemas = {
 
 const validationMiddleware = (schemaKey) => {
   return (req, res, next) => {
-    const data =
-      req.method === "GET" || req.method === "DELETE" ? req.query : req.body;
+    // const data =
+    //   req.method === "GET" || req.method === "DELETE" ? req.query : req.body;
+    const data = req.body;
     const schema = validationSchemas[schemaKey];
 
     if (!schema) {
       console.log(`Validation schema for "${schemaKey}" not found`);
       return res.status(500).json({
-        success: "flase",
+        success: "false",
         error: `Internal server error`,
       });
     }
@@ -56,7 +57,7 @@ const validationMiddleware = (schemaKey) => {
     const { error } = schema.validate(data);
 
     if (error) {
-      console.log("Error in scheam validator  -", error);
+      console.log("Error in schema validator  -", error);
 
       let errorMessages = error.details.map((err) =>
         err.message.replace(/"/g, "")
@@ -66,11 +67,6 @@ const validationMiddleware = (schemaKey) => {
         success: "false",
         error: errorMessages.join(","),
       });
-
-      //   // return res.status(400).json({ error: errorMessages.join(", ") });
-      //   let err = new Error(errorMessages.join(", "));
-      //   err.status = 400;
-      //   next(err);
     }
     next();
   };

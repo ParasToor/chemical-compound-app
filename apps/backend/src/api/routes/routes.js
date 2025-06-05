@@ -15,6 +15,9 @@ router
   .patch(validationMiddleware("updateCompound"), updateCompound)
   .delete(deleteCompound);
 
-router.route("/compounds").post(createCompound).get(getAllCompounds);
+router
+  .route("/compounds")
+  .post(validationMiddleware("createCompound"), createCompound)
+  .get(getAllCompounds);
 
 module.exports = router;
