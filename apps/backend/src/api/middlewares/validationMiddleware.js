@@ -4,11 +4,11 @@ const validationSchemas = {
   createCompound: createSchema([
     {
       name: "name",
-      validations: { type: "string", optional: true, min: 3 },
+      validations: { type: "string", required: true, min: 3 },
     },
     {
       name: "description",
-      validations: { type: "string", optional: true },
+      validations: { type: "string", required: true, min: 10 },
     },
     {
       name: "image",
@@ -33,6 +33,7 @@ const validationSchemas = {
       validations: {
         type: "string",
         pattern: /^https?:\/\/[^\s]+?\.(jpg|jpeg|png|gif|svg)(\?.*)?$/i,
+        optional: true,
       },
       message: "Invalid image URL",
     },

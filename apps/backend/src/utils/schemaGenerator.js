@@ -12,7 +12,7 @@ const createSchema = (fields) => {
   const schema = {};
 
   fields.forEach((field) => {
-    const { name, validations, conditional, message } = field;
+    const { name, validations, message } = field;
     if (Array.isArray(validations.type)) {
       const types = validations.type.map((t) => typeMapping[t]());
       if (validations.type.includes("array") && validations.items) {
@@ -35,7 +35,10 @@ const createSchema = (fields) => {
     }
 
     if (!schema[name]) {
-      throw new Error(`Invalid type provided for field: ${name}`);
+      console.log("Error in schema Generator");
+      console.log(`Invalid type provided for field : ${name}`);
+
+      throw new Error(`Invalid type provided for field : ${name}`);
     }
 
     if (validations.required) {
@@ -60,19 +63,6 @@ const createSchema = (fields) => {
       schema[name] = schema[name]
         .pattern(validations.pattern)
         .messages({ "string.pattern.base": message });
-    }
-    if (validations.custom) {
-      schema[name] = schema[name].custom(validations.custom);
-    }
-
-    if (conditional) {
-      const { field: conditionField, is, then, otherwise } = conditional;
-
-      schema[name] = schema[name].when(conditionField, {
-        is: is,
-        then: Joi[then](),
-        otherwise: Joi[otherwise](),
-      });
     }
   });
 
